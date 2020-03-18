@@ -30,5 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # TODO
 
+* services / data sharing
+* testing
 * custom /src/projectname path
 * radio buttons
