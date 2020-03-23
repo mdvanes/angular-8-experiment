@@ -7,13 +7,16 @@ import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
+// Added by generator with `ng g c ../my-project-name/my-foo --module=app`
+import { MyFooComponent } from '../my-project-name/my-foo/my-foo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    MyFooComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule
