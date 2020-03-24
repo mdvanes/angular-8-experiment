@@ -1,5 +1,7 @@
 # AngularTourOfHeroes
 
+This is an implementation of [this tutorial](https://angular.io/tutorial/), and used as a reference and for experimentation with Angular 8.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 
 ## Development server
