@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Added by generator with `ng g c ../my-project-name/my-foo --module=app`
 import { MyFooComponent } from '../my-project-name/my-foo/my-foo.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotificationComponent } from '../my-project-name/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeroDetailComponent,
     MessagesComponent,
     MyFooComponent,
-    DashboardComponent
+    DashboardComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule

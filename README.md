@@ -12,6 +12,14 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 or `ng g c component-name`
+also see
+
+```bash
+ng g c ../my-project-name/notification --flat --module=app
+    # --flat puts the file in src/app instead of its own folder.
+    # --module=app tells the CLI to register it in the imports array of the AppModule.
+    # source: https://angular.io/tutorial/toh-pt5
+```
 
 ## Build
 

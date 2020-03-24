@@ -1,4 +1,7 @@
 <p>my-foo works!</p>
+
 <div *ngIf="errorMessage">
-  <h1>{{errorMessage | uppercase}}</h1>
+  <h1>{{errorMessage | lowercase}}</h1>
 </div>
+
+<app-notification errorMessage="{{errorMessage}}"></app-notification>
