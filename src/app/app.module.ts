@@ -9,6 +9,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 // Added by generator with `ng g c ../my-project-name/my-foo --module=app`
 import { MyFooComponent } from '../my-project-name/my-foo/my-foo.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MyFooComponent } from '../my-project-name/my-foo/my-foo.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    MyFooComponent
+    MyFooComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule
