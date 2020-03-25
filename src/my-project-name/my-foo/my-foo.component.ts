@@ -6,8 +6,9 @@ import { Hero } from '../../app/hero';
 @Component({
   selector: 'app-my-foo',
   templateUrl: './my-foo.component.html',
-  styles: [':host { border: 5px solid lightgreen; display: block; margin-top: 1rem; padding: 0.5rem; }']
-  // styleUrls: ['./my-foo.component.css']
+  // styles: [':host { display: block; margin-top: 1rem; padding: 0.5rem; border-radius: 2px; background-color: white;
+  // box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; }']
+  styleUrls: ['./my-foo.component.css']
 })
 export class MyFooComponent implements OnInit {
   @Input() errorMessage: string;
