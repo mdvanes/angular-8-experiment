@@ -1,7 +1,11 @@
-<p>my-foo works!</p>
+<h1>My foo ({{errorMessage | lowercase}})</h1>
 
-<div *ngIf="errorMessage">
-  <h1>{{errorMessage | lowercase}}</h1>
+<div id="notification">
+  <h2>Not conditional</h2>
+  <app-notification errorMessage="{{errorMessage}}"></app-notification>
 </div>
 
-<app-notification errorMessage="{{errorMessage}}"></app-notification>
+<div *ngIf="errorMessage" id="notification-conditional">
+  <h2>Conditional</h2>
+  <app-notification errorMessage="{{errorMessage}}"></app-notification>
+</div>
