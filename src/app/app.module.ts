@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { MyFooComponent } from '../my-project-name/my-foo/my-foo.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotificationComponent } from '../my-project-name/notification/notification.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,13 @@ import { NotificationComponent } from '../my-project-name/notification/notificat
     NotificationComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule
+    BrowserModule, FormsModule, AppRoutingModule, HttpClientModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
