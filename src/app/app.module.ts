@@ -16,6 +16,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { FooWrapperComponent } from '../my-project-name/foo-wrapper/foo-wrapper.component';
+import { ReactiveFormComponent } from '../my-project-name/reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FooWrapperComponent } from '../my-project-name/foo-wrapper/foo-wrapper.
     DashboardComponent,
     NotificationComponent,
     HeroSearchComponent,
-    FooWrapperComponent
+    FooWrapperComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule,
