@@ -45,16 +45,6 @@ export class HeroesComponent implements OnInit {
   //   this.messageService.add(`HeroService: Selected hero id=${hero.id}`);
   // }
 
-  getHeroes(): void /* async getHeroes(): Promise<void> */ {
-    // const foo = this.heroService.getHeroes();
-    // console.log(foo);
-    // this.heroes = foo;
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
-    // const foo = await this.heroService.getHeroes();
-    // foo.subscribe(heroes => this.heroes = heroes);
-  }
-
   // DI param is automatically assigned to member with the same name
   constructor(private heroService: HeroService/*, private myTestParam: string = 'bla'*/, private messageService: MessageService) { }
 
@@ -68,6 +58,31 @@ export class HeroesComponent implements OnInit {
     // console.log(`myTest barPrivate: ${myTest.barPrivate} | barDefault: ${myTest.barDefault}`);
     // TS 3.8+ causes compile error AND runtime error
     // console.log(`myTest barESPrivate: ${myTest.barESPrivate}`);
+  }
+
+  getHeroes(): void /* async getHeroes(): Promise<void> */ {
+    // const foo = this.heroService.getHeroes();
+    // console.log(foo);
+    // this.heroes = foo;
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
+    // const foo = await this.heroService.getHeroes();
+    // foo.subscribe(heroes => this.heroes = heroes);
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
+
+  delete(hero: Hero): void {
+    // TODO it filters and than removes. Maybe tap on subscribe and only update this.heroes if it succeeds
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero).subscribe();
   }
 
 }
