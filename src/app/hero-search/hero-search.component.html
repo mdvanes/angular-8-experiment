@@ -1,0 +1,24 @@
+<div id="search-component">
+  <h4><label for="search-box">Hero Search</label></h4>
+
+  <!--
+  Also see: https://stackoverflow.com/posts/35944965/revisions
+  `#searchBox` is a template reference variable, it allows a reference to `searchBox` within `search` without declaring a member in the component class. See https://blog.angulartraining.com/tutorial-the-magic-of-template-reference-variables-3183f0a0d9d1
+  (input) : () the event binding syntax to bind event handlers
+  -->
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <!--
+    *ngFor : the * indicates an structural directive: the directive modifies the DOM structure
+    heroes$ : the $ is a convention to indicate variables containing an observable
+    {{ hero.id }} : {{ }} indicates variable interpolation, it renders the value of the property as text
+    [id]="hero.id" : [] indicates a property binding, it allows the use of a variable in an attribute, e.g. [id]="hero.id" TODO move to below, test
+    -->
+    <li *ngFor="let hero of heroes$ | async" >
+      <a routerLink="/detail/{{hero.id}}" [id]="hero.id">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
