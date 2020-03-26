@@ -17,10 +17,17 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
-  template: `
-    Favorite Color: <input type="text" [formControl]="favoriteColorControl">
-  `
+  templateUrl: './reactive-form.component.html',
+  // template: `
+  //   Favorite Color: <input type="text" [formControl]="favoriteColorControl">
+  // `
+  styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent {
-  favoriteColorControl = new FormControl('');
+  color1rControl = new FormControl('red');
+  color1tColor = 'red';
+  color2rControl = new FormControl('red');
+  color2tColor = 'red';
+  color3rControl = new FormControl('red');
+  color3tColor = 'red';
 }
