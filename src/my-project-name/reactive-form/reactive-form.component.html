@@ -116,8 +116,9 @@ Form Status: {{ colorForm.status }}
 </form>
 
 <h2>FormBuilder Group</h2>
-Form Status: {{ colorBuildForm.status }}
+Form Status: {{ colorBuildForm.status }} (responds when all fields in this form are filled in)
 <form [formGroup]="colorBuildForm">
+  <button (click)="addGroupColor()">Add Color 8</button>
   <div class="my-control">
     <h2>Color 6</h2>
     <div class="control">
@@ -136,7 +137,28 @@ Form Status: {{ colorBuildForm.status }}
       <div class="plain-value">{{colorBuildForm.value.color7Control}}</div>
     </div>
   </div>
+  <div *ngIf="hasColor8Control()">
+    <div class="my-control">
+      <h2>Color 8</h2>
+      <div class="control">
+        <input type="text" formControlName="color8Control" />
+      </div>
+      <div class="value">
+        <div class="plain-value">{{colorBuildForm.value.color8Control}}</div>
+      </div>
+    </div>
+  </div>
 </form>
 
-<!--TODO: add array-->
 <h2>FormArray</h2>
+Form Status: {{ colorBuildArrayGroup.status }} (responds when all fields in this form are filled in)
+
+<form [formGroup]="colorBuildArrayGroup">
+  <div formArrayName="colorBuildArray">
+    <button (click)="addArrayColor()">Add Color</button>
+    <div *ngFor="let c of colorBuildArray.controls; let i=index">
+      form-array-color-{{i}} <input [formControlName]="i" />
+    </div>
+  </div>
+</form>
+
