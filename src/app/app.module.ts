@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +32,7 @@ import { ReactiveFormComponent } from '../my-project-name/reactive-form/reactive
     ReactiveFormComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule, HttpClientModule,
+    BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.

@@ -1,1 +1,95 @@
-<h1>Reactive Form</h1>
+<h1>Form</h1>
+
+
+<div class="my-control">
+  <h2>Color 1r</h2>
+  <div class="control">
+    <input type="text" [formControl]="color1rControl" [value]="color1rControl.value" />
+  </div>
+  <div class="value">
+    <div class="plain-value">{{color1rControl.value}}</div>
+    <!-- NOTE: [value] is needed for an input bound with formControl to receive updates -->
+    <input type="text" [formControl]="color1rControl" [value]="color1rControl.value" disabled />
+  </div>
+</div>
+
+<div class="my-control">
+  <h2>Color 1t</h2>
+  <div class="control">
+    <input type="text" [(ngModel)]="color1tColor" />
+  </div>
+  <div class="value">
+    <div class="plain-value">{{color1tColor}}</div>
+    <!-- NOTE: [value] is NOT needed for an input bound with ngModel to receive updates -->
+    <input type="text" [(ngModel)]="color1tColor"  disabled />
+  </div>
+</div>
+
+
+<div class="my-control">
+  <h2>Color 2 reactive</h2>
+  <div class="control">
+    <label><input type="radio" name="color2r" [formControl]="color2rControl" value="red" /> red</label>
+    <label><input type="radio" name="color2r" [formControl]="color2rControl" value="green"/> green</label>
+  </div>
+  <div class="value">
+    <div class="plain-value">{{color2rControl.value}}</div>
+    Note that adding radio buttons here, will break the visibility of the selection status of the radio buttons in .control!
+    <!--<label><input disabled type="radio" name="color2r" [formControl]="color2rControl" value="red" /> red</label>
+    <label><input disabled type="radio" name="color2r" [formControl]="color2rControl" value="green"/> green</label>-->
+  </div>
+</div>
+
+<div class="my-control">
+  <h2>Color 2 template</h2>
+  <div class="control">
+    <label><input type="radio" [(ngModel)]="color2tColor" value="red" /> red</label>
+    <label><input type="radio" [(ngModel)]="color2tColor" value="green"/> green</label>
+  </div>
+  <div class="value">
+    <div class="plain-value">{{color2tColor}}</div>
+    <label><input disabled type="radio" [(ngModel)]="color2tColor" value="red" /> red</label>
+    <label><input disabled type="radio" [(ngModel)]="color2tColor" value="green"/> green</label>
+  </div>
+</div>
+
+
+<div class="my-control">
+  <h2>Color 3 reactive</h2>
+  <div class="control">
+    <select [formControl]="color3rControl">
+      <option value="red">red</option>
+      <option value="green">green</option>
+    </select>
+  </div>
+  <div class="value">
+    <div class="plain-value">{{color3rControl.value}}</div>
+    <!-- NOTE: [value] is needed for a select bound with formControl to receive updates -->
+    <select [formControl]="color3rControl" [value]="color3rControl.value" disabled>
+      <option value="red">red</option>
+      <option value="green">green</option>
+    </select>
+  </div>
+</div>
+
+<div class="my-control">
+  <h2>Color 3 template</h2>
+  <div class="control">
+    <select [(ngModel)]="color3tColor">
+      <option value="red">red</option>
+      <option value="green">green</option>
+    </select>
+  </div>
+  <div class="value">
+    <div class="plain-value">{{color3tColor}}</div>
+    <select [(ngModel)]="color3tColor" disabled>
+      <option value="red">red</option>
+      <option value="green">green</option>
+    </select>
+  </div>
+</div>
+
+<!--TODO: add group and array-->
+<h2>Group</h2>
+
+<h2>Array</h2>
