@@ -89,7 +89,54 @@
   </div>
 </div>
 
-<!--TODO: add group and array-->
-<h2>Group</h2>
+<h2>FormGroup</h2>
+Form Status: {{ colorForm.status }}
+<form [formGroup]="colorForm">
+  <div class="my-control">
+    <h2>Color 4</h2>
+    <div class="control">
+      <input type="text" formControlName="color4Control" />
+    </div>
+    <div class="value">
+      <div class="plain-value">{{colorForm.value.color4Control}}</div>
+      <!-- NOTE: [value] is needed for an input bound with formControl to receive updates -->
+      <input type="text" formControlName="color4Control" [value]="colorForm.value.color4Control" disabled />
+    </div>
+  </div>
+  <div class="my-control">
+    <h2>Color 5</h2>
+    <div class="control">
+      <label><input type="radio" formControlName="color5Control" value="red" /> red</label>
+      <label><input type="radio" formControlName="color5Control" value="green"/> green</label>
+    </div>
+    <div class="value">
+      <div class="plain-value">{{colorForm.value.color5Control}}</div>
+    </div>
+  </div>
+</form>
 
-<h2>Array</h2>
+<h2>FormBuilder Group</h2>
+Form Status: {{ colorBuildForm.status }}
+<form [formGroup]="colorBuildForm">
+  <div class="my-control">
+    <h2>Color 6</h2>
+    <div class="control">
+      <input type="text" formControlName="color6Control" />
+    </div>
+    <div class="value">
+      <div class="plain-value">{{colorBuildForm.value.color6Control}}</div>
+    </div>
+  </div>
+  <div class="my-control">
+    <h2>Color 7</h2>
+    <div class="control">
+      <input type="text" formControlName="color7Control" />
+    </div>
+    <div class="value">
+      <div class="plain-value">{{colorBuildForm.value.color7Control}}</div>
+    </div>
+  </div>
+</form>
+
+<!--TODO: add array-->
+<h2>FormArray</h2>
