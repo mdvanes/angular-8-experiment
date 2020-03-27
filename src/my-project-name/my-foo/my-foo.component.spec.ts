@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyFooComponent } from './my-foo.component';
 import { Component, Input } from '@angular/core';
-import { Hero } from '../../app/hero';
 import { By } from '@angular/platform-browser';
 
 @Component({selector: 'app-notification', template: ''})
@@ -31,11 +30,6 @@ describe('MyFooComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('has a specific text in a p element', () => {
-    const pContent = fixture.debugElement.nativeElement.querySelector('p').textContent;
-    expect(pContent).toContain('my-foo works!');
-  });
-
   describe('with errorMessage attribute', () => {
       beforeEach(() => {
         component.errorMessage = 'My Test Error Message!';
@@ -47,19 +41,25 @@ describe('MyFooComponent', () => {
         expect(h1Content).toContain('my test error message!');
       });
 
-      // TODO do this without the ng-reflect- prefix
-      it('has an "notification" component with an "errormessage" attribute', () => {
-        // const notificationElem = fixture.debugElement.query(By.directive(NotificationStubComponent));
-        // expect(notificationElem.errorMessage).toContain('MY TEST ERROR MESSAGE!');
+      // DOM testing
+      it('has an "notification" component with an "errormessage" attribute (DOM)', () => {
         const notificationElem = fixture.debugElement.nativeElement.querySelector('app-notification');
-        // expect(notificationElem.attributes).toEqual({errorMessage: 'MY TEST ERROR MESSAGE!'});
-        // const x = notificationElem.attributes.find(attr => attr.name === 'ng-reflect-error-message').textContent;
-        // console.log(notificationElem.attributes, notificationElem.attributes.getNamedItem('ng-reflect-error-message'));
+        // Does not work: expect(notificationElem.errorMessage).toContain('MY TEST ERROR MESSAGE!');
+        // Does not work: expect(notificationElem.attributes).toEqual({errorMessage: 'MY TEST ERROR MESSAGE!'});
+        // Works, but .getNamedItem is more concise:
+        //  const x = notificationElem.attributes.find(attr => attr.name === 'ng-reflect-error-message').textContent;
+        // Works, but using ng-reflect-* is hacky. This should not be a DOM test. See test below for alternative with spy
         const attr = notificationElem.attributes.getNamedItem('ng-reflect-error-message');
         // console.log(attr.textContent);
         expect(attr.textContent).toBe('My Test Error Message!');
-        // expect(notificationElem.attributes[1].value).toBe('My Test Error Message!');
-        // expect(notificationElem.attributes).toContain('My Test Error Message!');
+        expect(notificationElem.getAttribute('ng-reflect-error-message')).toBe('My Test Error Message!');
+      });
+
+      // Test if the errorMessage attribute of the nested notification element is wired properly
+      it('has an "notification" component with an "errormessage" attribute (spy)', () => {
+        const notificationDebugElem = fixture.debugElement.query(By.directive(NotificationStubComponent));
+        const notificationComp = notificationDebugElem.injector.get(NotificationStubComponent);
+        expect(notificationComp.errorMessage).toBe('My Test Error Message!');
       });
   });
 });
