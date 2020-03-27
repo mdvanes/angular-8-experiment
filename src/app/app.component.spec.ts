@@ -1,21 +1,36 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { Component } from '@angular/core';
+import { Component, Directive, Input, HostListener } from '@angular/core';
 
 // https://angular.io/guide/testing#stubbing-unneeded-components
 
-@Component({selector: 'app-heroes', template: ''})
-class HeroesStubComponent {}
+// tslint:disable-next-line:component-selector
+@Component({selector: 'router-outlet', template: ''})
+class RouterOutletStubComponent {}
 
 @Component({selector: 'app-messages', template: ''})
 class MessagesStubComponent {}
+
+@Directive({
+  // tslint:disable-next-line:directive-selector
+  selector: '[routerLink]'
+})
+class RouterLinkStubDirective {
+  @Input('routerLink') linkParams: any;
+  navigatedTo: any = null;
+
+  @HostListener('click')
+  onClick() {
+    this.navigatedTo = this.linkParams;
+  }
+}
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        HeroesStubComponent,
+        RouterOutletStubComponent,
         MessagesStubComponent
       ],
     }).compileComponents();
