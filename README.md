@@ -29,13 +29,21 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Coverage: `ng test --code-coverage`
+Coverage: `ng test --code-coverage`, coverage is in `/coverage/[projectname]/index.html`
 
 also see: `ng lint`
 
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+To debug:
+
+1. Add a `debugger;` statement somewhere in the code
+2. do not start with `ng e2e` but with `ng serve` and in other terminal `npm run e2e:debug`
+3. In Chrome, open the console and click the green "NodeJS" icon
+4. A new Chrome window will open. Click the blue `continue` arrow.
+5. The tests will start running. The next breakpoint will be at the `debugger;` statement.
 
 ## Further help
 
