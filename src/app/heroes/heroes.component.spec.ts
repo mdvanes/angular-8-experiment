@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroesComponent } from './heroes.component';
 import { Component, Input } from '@angular/core';
 import { Hero } from '../hero';
+import { RouterLinkDirectiveStub } from '../../testing/router-link-directive-stub';
+import { HeroService } from '../hero.service';
 
 // https://angular.io/guide/testing#stubbing-unneeded-components
 
@@ -15,8 +17,13 @@ describe('HeroesComponent', () => {
   let fixture: ComponentFixture<HeroesComponent>;
 
   beforeEach(async(() => {
+    const HeroServiceSpy = jasmine.createSpyObj('HeroService', ['getHeroes']);
+    HeroServiceSpy.getHeroes.and.returnValue({ subscribe: jasmine.createSpy() } );
     TestBed.configureTestingModule({
-      declarations: [ HeroesComponent, HeroDetailStubComponent ]
+      declarations: [ HeroesComponent, HeroDetailStubComponent, RouterLinkDirectiveStub ],
+      providers: [ HeroesComponent,
+        { provide: HeroService, useValue: HeroServiceSpy }
+      ]
     })
     .compileComponents();
   }));
