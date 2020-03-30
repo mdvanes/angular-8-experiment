@@ -10,7 +10,7 @@
     "watch": "npm-watch",
     "e2e": "ng e2e",
     "e2e:protractor": "node --inspect-brk node_modules/protractor/bin/protractor e2e/protractor.conf.js",
-    "e2e:debug": "concurrently --kill-others \"ng serve\" \"node_modules/protractor/bin/webdriver-manager update\" \"npm run watch\""
+    "e2e:debug": "node_modules/protractor/bin/webdriver-manager update && npm run watch"
   },
   "watch": {
     "e2e:protractor": [

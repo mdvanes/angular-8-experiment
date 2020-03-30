@@ -15,14 +15,11 @@ export class AppPage {
   }
 
   async clickTopHeroPanel(heroId: number) {
-    // const attr = await element.all(by.css('app-dashboard a')).get(1).getAttribute('href'); // .then(y => console.log(y));
-    // console.log('ATTR', attr);
-
     const panels = element.all(by.css('app-dashboard a'));
     const selectedPanel = panels.filter(async panel => {
       const attr = await panel.getAttribute('href');
-      // console.log('ATTR2', attr);
-      return attr === `http://localhost:4200/detail/${heroId}`;
+      const attrPath = (new URL(attr)).pathname;
+      return attrPath === `/detail/${heroId}`;
     });
     // TODO test that there is exactly one result or else throw error
     console.log('Selected Panel:', await selectedPanel.first().getAttribute('href'));
