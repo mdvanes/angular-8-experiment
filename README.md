@@ -45,6 +45,8 @@ To debug:
 4. A new Chrome window will open. Click the blue `continue` arrow.
 5. The tests will start running. The next breakpoint will be at the `debugger;` statement.
 
+Both "simple" protractor and cucumber are configured to be able to compare the configurations. To run cucumber e2e tests: `npm run cucumber`.
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
