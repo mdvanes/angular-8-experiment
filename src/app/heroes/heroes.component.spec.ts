@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
 import { Hero } from '../hero';
 import { RouterLinkDirectiveStub } from '../../testing/router-link-directive-stub';
 import { HeroService } from '../hero.service';
+import { Observable } from 'rxjs';
 
 // https://angular.io/guide/testing#stubbing-unneeded-components
 
@@ -15,7 +16,7 @@ class HeroDetailStubComponent {
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
   let fixture: ComponentFixture<HeroesComponent>;
-  let HeroServiceSpy;
+  let HeroServiceSpy: jasmine.SpyObj<{ getHeroes: () => Pick<Observable<Hero[]>, 'subscribe'> }>;
 
   beforeEach(async(() => {
     HeroServiceSpy = jasmine.createSpyObj('HeroService', ['getHeroes']);
