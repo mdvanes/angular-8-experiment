@@ -11,20 +11,6 @@ class RouterOutletStubComponent {}
 @Component({selector: 'app-messages', template: ''})
 class MessagesStubComponent {}
 
-@Directive({
-  // tslint:disable-next-line:directive-selector
-  selector: '[routerLink]'
-})
-class RouterLinkStubDirective {
-  @Input('routerLink') linkParams: any;
-  navigatedTo: any = null;
-
-  @HostListener('click')
-  onClick() {
-    this.navigatedTo = this.linkParams;
-  }
-}
-
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
