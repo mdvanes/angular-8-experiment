@@ -2,6 +2,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeroDetailComponent } from './hero-detail.component';
 import { Hero } from '../hero';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
+@NgModule({
+  imports: [RouterModule.forRoot([])],
+  exports: [RouterModule]
+})
+class AppRoutingStubModule { }
 
 xdescribe('HeroDetailComponent', () => {
   let component: HeroDetailComponent;
@@ -9,8 +19,12 @@ xdescribe('HeroDetailComponent', () => {
   let expectedHero: Hero;
 
   beforeEach(async(() => {
+    const HttpClientSpy = jasmine.createSpyObj('HttpClient', ['get', 'post', 'put', 'delete']);
     TestBed.configureTestingModule({
-      declarations: [ HeroDetailComponent ]
+      imports: [ FormsModule, AppRoutingStubModule ],
+      declarations: [ HeroDetailComponent ],
+      providers: [ HeroDetailComponent,
+        { provide: HttpClient, useValue: HttpClientSpy } ]
     })
     .compileComponents();
   }));
