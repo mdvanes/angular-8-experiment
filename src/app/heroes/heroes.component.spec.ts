@@ -15,9 +15,10 @@ class HeroDetailStubComponent {
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
   let fixture: ComponentFixture<HeroesComponent>;
+  let HeroServiceSpy;
 
   beforeEach(async(() => {
-    const HeroServiceSpy = jasmine.createSpyObj('HeroService', ['getHeroes']);
+    HeroServiceSpy = jasmine.createSpyObj('HeroService', ['getHeroes']);
     HeroServiceSpy.getHeroes.and.returnValue({ subscribe: jasmine.createSpy() } );
     TestBed.configureTestingModule({
       declarations: [ HeroesComponent, HeroDetailStubComponent, RouterLinkDirectiveStub ],
@@ -36,5 +37,9 @@ describe('HeroesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call getHeroes on init', () => {
+    expect(HeroServiceSpy.getHeroes.calls.count()).toBe(1);
   });
 });
