@@ -27,7 +27,6 @@ describe('workspace-project App', () => {
     // debugger;
     // expect(x).toEqual([]);
     expect(page.getHeroDetailTitleText()).toEqual('CELERITAS Details');
-    // TODO add cucumber
 
     // To debug:
     // 1. Add a `debugger;` statement somewhere in the code
