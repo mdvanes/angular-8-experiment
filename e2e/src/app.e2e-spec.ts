@@ -24,10 +24,9 @@ describe('workspace-project App', () => {
     // browser.pause();
 
     await page.clickTopHeroPanel(14);
-    debugger;
+    // debugger;
     // expect(x).toEqual([]);
     expect(page.getHeroDetailTitleText()).toEqual('CELERITAS Details');
-    // TODO fix so it will also succeed when running with `ng e2e` -> this is because ng e2e was not running on port 4200, so the string compare fails.
     // TODO add cucumber
 
     // To debug:
