@@ -111,8 +111,4 @@ export class HeroService {
     );
   }
 
-  testLog(): void {
-    this.log('just a sync test for messages');
-  }
-
 }
