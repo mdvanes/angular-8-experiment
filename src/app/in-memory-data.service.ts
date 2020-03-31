@@ -2,6 +2,8 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Hero } from './hero';
 import { Injectable } from '@angular/core';
 
+// This file is excluded from test coverage in angular.json, because it was supplied as is.
+
 @Injectable({
   providedIn: 'root',
 })
