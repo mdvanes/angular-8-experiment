@@ -1,3 +1,5 @@
+<app-nav></app-nav>
+
 <h2>My Heroes</h2>
 <div *ngIf="!heroes"><i>Loading...</i></div>
 <ul class="heroes">
@@ -5,11 +7,10 @@
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>-->
   <li *ngFor="let hero of heroes" [attr.data-bb]="hero.id">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <a routerLink="/detail/{{ hero.id }}">
+      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
     </a>
-    <button class="delete" title="delete hero"
-            (click)="delete(hero)">x</button>
+    <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
   </li>
 </ul>
 
@@ -18,11 +19,12 @@
 -->
 
 <div>
-  <label>Hero name:
+  <label
+    >Hero name:
     <input #heroName />
   </label>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(heroName.value); heroName.value=''">
+  <button (click)="add(heroName.value); heroName.value = ''">
     add
   </button>
 </div>

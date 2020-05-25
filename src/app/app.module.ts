@@ -17,6 +17,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { FooWrapperComponent } from '../my-project-name/foo-wrapper/foo-wrapper.component';
 import { ReactiveFormComponent } from '../my-project-name/reactive-form/reactive-form.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReactiveFormComponent } from '../my-project-name/reactive-form/reactive
     NotificationComponent,
     HeroSearchComponent,
     FooWrapperComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule,
