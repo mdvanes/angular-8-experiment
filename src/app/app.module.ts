@@ -18,6 +18,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { FooWrapperComponent } from '../my-project-name/foo-wrapper/foo-wrapper.component';
 import { ReactiveFormComponent } from '../my-project-name/reactive-form/reactive-form.component';
 import { NavComponent } from './nav/nav.component';
+import { NavlinkComponent } from './navlink/navlink.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NavComponent } from './nav/nav.component';
     HeroSearchComponent,
     FooWrapperComponent,
     ReactiveFormComponent,
-    NavComponent
+    NavComponent,
+    NavlinkComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule,

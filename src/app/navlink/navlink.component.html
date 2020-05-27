@@ -1,0 +1,5 @@
+<a
+  [ngClass]="{ current: currentRoute.toString() === name.toLowerCase() }"
+  routerLink="/{{ name.toLowerCase() }}"
+  >{{ name }}</a
+>
