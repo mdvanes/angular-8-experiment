@@ -1,27 +1,39 @@
-import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Hero } from './hero';
-import { Injectable } from '@angular/core';
+import { InMemoryDbService } from "angular-in-memory-web-api";
+import { Hero } from "./hero";
+import { Injectable } from "@angular/core";
 
 // This file is excluded from test coverage in angular.json, because it was supplied as is.
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-      { id: 11, name: 'Dr Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 11, name: "Dr Nice" },
+      { id: 12, name: "Narco" },
+      { id: 13, name: "Bombasto" },
+      { id: 14, name: "Celeritas" },
+      { id: 15, name: "Magneta" },
+      { id: 16, name: "RubberMan" },
+      { id: 17, name: "Dynama" },
+      { id: 18, name: "Dr IQ" },
+      { id: 19, name: "Magma" },
+      { id: 20, name: "Tornado" },
     ];
-    return {heroes};
+    const strength = [
+      { id: 11, strength: 211 },
+      { id: 12, strength: 412 },
+      { id: 13, strength: 213 },
+      { id: 14, strength: 414 },
+      { id: 15, strength: 215 },
+      { id: 16, strength: 516 },
+      { id: 17, strength: 117 },
+      { id: 18, strength: 1018 },
+      { id: 19, strength: 219 },
+      { id: 20, strength: 320 },
+    ];
+    return { heroes, strength };
   }
 
   // Overrides the genId method to ensure that a hero always has an id.
@@ -30,6 +42,8 @@ export class InMemoryDataService implements InMemoryDbService {
   // if the heroes array is not empty, the method below returns the highest
   // hero id + 1.
   genId(heroes: Hero[]): number {
-    return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
+    return heroes.length > 0
+      ? Math.max(...heroes.map((hero) => hero.id)) + 1
+      : 11;
   }
 }
