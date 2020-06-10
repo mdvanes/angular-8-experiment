@@ -57,7 +57,7 @@ export class HeroSearchComponent implements OnInit {
             tap((hero) => console.log("test", hero)),
             mergeMap((hero) =>
               this.heroService.getHeroStrength(hero.id).pipe(
-                delay(Math.random() * 2000),
+                // delay(Math.random() * 2000),
                 map((strength) => [strength, hero])
               )
             ),
