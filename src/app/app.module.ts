@@ -19,6 +19,7 @@ import { FooWrapperComponent } from '../my-project-name/foo-wrapper/foo-wrapper.
 import { ReactiveFormComponent } from '../my-project-name/reactive-form/reactive-form.component';
 import { NavComponent } from './nav/nav.component';
 import { NavlinkComponent } from './navlink/navlink.component';
+import { SelectUserComponent } from './select-user/select-user.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NavlinkComponent } from './navlink/navlink.component';
     FooWrapperComponent,
     ReactiveFormComponent,
     NavComponent,
-    NavlinkComponent
+    NavlinkComponent,
+    SelectUserComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule,
