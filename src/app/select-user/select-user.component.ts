@@ -2,26 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { UserService } from '../user.service';
-import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-select-user',
+  templateUrl: './select-user.component.html',
+  styleUrls: ['./select-user.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class SelectUserComponent implements OnInit {
   heroes: Hero[] = [];
-  greetedUser$: Observable<string>;
 
   constructor(private heroService: HeroService, private userService: UserService) { }
 
   ngOnInit() {
-    this.getHeroes();
-    this.greetedUser$ = this.userService.sharedCurrentUser$;
-  }
-
-  getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes.slice(1, 5));
   }
+
+  newUser(name: string) {
+    this.userService.nextUser(name);
+  }
+
 }
