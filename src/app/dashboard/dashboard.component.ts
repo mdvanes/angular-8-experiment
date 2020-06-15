@@ -11,13 +11,12 @@ import { Observable } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-  greetedUser$: Observable<string>;
+  greetedUser$ = this.userService.sharedCurrentUser$;
 
   constructor(private heroService: HeroService, private userService: UserService) { }
 
   ngOnInit() {
     this.getHeroes();
-    this.greetedUser$ = this.userService.sharedCurrentUser$;
   }
 
   getHeroes(): void {
