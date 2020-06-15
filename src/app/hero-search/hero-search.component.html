@@ -15,9 +15,10 @@
     {{ hero.id }} : {{ }} indicates variable interpolation, it renders the value of the property as text
     [id]="hero.id" : [] indicates a property binding, it allows the use of a variable in an attribute, e.g. [id]="hero.id" TODO move to below, test
     -->
-    <li *ngFor="let hero of heroes$ | async" >
-      <a routerLink="/detail/{{hero.id}}" [id]="hero.id">
-        {{hero.name}}
+    <li *ngFor="let hero of heroes$ | async">
+      <a routerLink="/detail/{{ hero.id }}" [id]="hero.id">
+        {{ hero.name }}
+        <span *ngIf="hero.strength > 0">({{ hero.strength }})</span>
       </a>
     </li>
   </ul>
