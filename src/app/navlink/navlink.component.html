@@ -1,5 +1,8 @@
-<a
+<!-- <a
   [ngClass]="{ current: currentRoute.toString() === name.toLowerCase() }"
   routerLink="/{{ name.toLowerCase() }}"
   >{{ name }}</a
->
+> -->
+<a [ngClass]="{ current: (currentRoute$ | async).toString() === name.toLowerCase() }"
+  routerLink="/{{ name.toLowerCase() }}">{{ name }}
+</a>
