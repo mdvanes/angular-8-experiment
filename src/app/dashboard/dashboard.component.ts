@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { UserService } from '../user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,13 +11,13 @@ import { UserService } from '../user.service';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-  greetedUser: string;
+  greetedUser$: Observable<string>;
 
   constructor(private heroService: HeroService, private userService: UserService) { }
 
   ngOnInit() {
     this.getHeroes();
-    this.userService.sharedCurrentUser$.subscribe(user => this.greetedUser = user)
+    this.greetedUser$ = this.userService.sharedCurrentUser$;
   }
 
   getHeroes(): void {
