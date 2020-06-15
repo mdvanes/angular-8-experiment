@@ -1,0 +1,17 @@
+h4 {
+    background-color: #3f525c;
+    color: white;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0;
+    padding: 0.3rem;
+    max-width: 300px;
+}
+
+h4:hover {
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+}
